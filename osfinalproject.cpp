@@ -5,7 +5,7 @@ struct process
 	int arrival_time,burst_time,ct,waiting_time,turnaround_time,priority;
 	int status;
 }
-process_queue[11]
+process_queue[11];
 int limit;
 void Arrival_Time_Sorting()
 {
@@ -32,7 +32,7 @@ int main()
 	float wait_time=0,turnaround_time=0,average_waiting_time,average_turnaround_time;
 	printf("\n Enter Number Of Process: ");
 	scanf("%d",&limit);
-	for(i=0,c='A',i<limit;i++,c++)
+	for(i=0,c='A';i<limit;i++,c++)
 	{
 		process_queue[i].process_name=c;
 		printf("\nEnter Process Details[%C]:\n",process_queue[i].process_name);
@@ -47,7 +47,7 @@ int main()
 	}
 	Arrival_Time_Sorting();
 	printf("\nProcess Name\tArrival Time\tBurst Time\t Priority\t Waiting Time");
-	for(time=process_queue[0].arrival_time;time<burst_time);
+	for(time=process_queue[0].arrival_time;time<burst_time;)
 	{
 		largest=10;
 		for(i=0;i<limit;i++)
@@ -57,14 +57,14 @@ int main()
 			largest=i;
 		}
 	}
-		time=time+process_queue[largest],burst_time;
+		time=time+process_queue[largest].burst_time;
 		process_queue[largest].ct=time;
 		process_queue[largest].waiting_time=process_queue[largest].ct-process_queue[largest].arrival_time-process_queue[largest].burst_time;
 		process_queue[largest].turnaround_time=process_queue[largest].ct-process_queue[largest].arrival_time;
 		process_queue[largest].status=1;
 		wait_time=wait_time+process_queue[largest].waiting_time;
 		turnaround_time=turnaround_time+process_queue[largest].turnaround_time;
-		printf("\n%c\t\t%d\t\t%d\t\t%d\t\t%d",process_queue[largest].process_name,process_queue[largest].arrival_time,process_queue[largest].burst_time,process_queue[largest].priority,process_queue[largest].waiting_time)
+		printf("\n%c\t\t%d\t\t%d\t\t%d\t\t%d",process_queue[largest].process_name,process_queue[largest].arrival_time,process_queue[largest].burst_time,process_queue[largest].priority,process_queue[largest].waiting_time);
 	}
 	average_waiting_time=wait_time/limit;
 	average_turnaround_time=turnaround_time/limit;
