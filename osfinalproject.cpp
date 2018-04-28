@@ -25,4 +25,20 @@ void Arrival_Time_Sorting()
 	}
 }
 
-
+int main()
+{
+	int i,time=0,burst_time=0,largest;
+	char c;
+	float wait_time=0,turnaround_time=0,average_waiting_time,average_turnaround_time;
+	printf("\n Enter Number Of Process: ");
+	scanf("%d",&limit);
+	for(i=0,c='A',i<limit;i++,c++)
+	{
+		process_queue[i].process_name=c;
+		printf("\nEnter Process Details[%C]:\n",process_queue[i].process_name);
+		printf("Enter Arrival Time:\t");
+	 	scanf("%d",&process_queue[i].arrival_time);
+	 	printf("Enter Burst Time:\t");
+	 	scanf("%d",&process_queue[i].burst_time);
+	}
+}
