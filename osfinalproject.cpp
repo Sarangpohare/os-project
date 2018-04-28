@@ -40,5 +40,19 @@ int main()
 	 	scanf("%d",&process_queue[i].arrival_time);
 	 	printf("Enter Burst Time:\t");
 	 	scanf("%d",&process_queue[i].burst_time);
+		printf("Enter Priority:\t");
+		scanf("%d",&process_queue[i].priority);
+		process_queue[i].status=0;
+		burst_time=burst_time+process_queue[i].burst_time;
+	}
+	Arrival_Time_Sorting();
+	printf("\nProcess Name\tArrival Time\tBurst Time\t Priority\t Waiting Time");
+	for(time=process_queue[0].arrival_time;time<burst_time);
+	{
+		if(process_queue[i].arrival_time<=time&&process_queue[i].status!=1&&process_queue[i].priority>process_queue[largest].priority)
+		{
+			largest=i;
+		}
 	}
 }
+
